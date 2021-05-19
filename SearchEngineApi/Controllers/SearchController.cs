@@ -13,26 +13,12 @@ namespace SearchEngineApi.Controllers
     [ApiController]
     public class SearchController : ControllerBase
     {
-        // GET: api/Search
-        [HttpGet]
-        public IEnumerable<SearchResult> Get()
-        {
-            return new SearchService().GetSearchResult("online title search", "google");
-        }
-
-        // GET: api/google/searchtext
+        
+        // GET: api/search/google/searchtext
         [HttpGet("{engineName}/{searchQuery}", Name = "GetSearchResults")]
         public IEnumerable<SearchResult> Get(string searchQuery, string engineName)
         {
             return new SearchService().GetSearchResult(searchQuery, engineName);
         }
-
-        // POST: api/Search
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-       
-    }
+	}
 }
